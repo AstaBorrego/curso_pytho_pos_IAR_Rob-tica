@@ -1,0 +1,38 @@
+# Autor: Profº Astarote
+import os  # Importa a ferramenta que interage com o Sistema Operacional
+import platform  # Importa para identificar se é Windows ou Linux/Mac
+
+
+# Função para limpar a tela de forma inteligente
+def limpar_tela():
+    # Se o sistema for 'Windows', usa o comando 'cls', senão usa 'clear'
+    comando = "cls" if platform.system() == "Windows" else "clear"
+    os.system(comando)  # Executa o comando de limpeza no terminal
+
+
+limpar_tela()  # Chama a função para apagar tudo o que estava escrito antes
+
+# Cria uma lista vazia que servirá como uma "sacola" para guardar as notas
+notas = []
+
+# O 'for' percorre o ciclo de 1 a 3
+for i in range(1, 4):
+    # Pede a nota e converte para decimal
+    valor = float(input(f"Digite a nota {i}: "))
+    # O 'append' joga o valor digitado para dentro da lista 'notas'
+    notas.append(valor)
+
+# Calcula a média somando a lista e dividindo pelo número de itens
+media = sum(notas) / len(notas)
+
+# Exibe o resultado com uma casa decimal
+print(f"A sua média é {media:.1f}")
+
+
+# Estrutura de decisão para verificar o desempenho do aluno
+if media >= 7:
+    print("APROVADO!")
+elif media >= 5:
+    print("RECUPERAÇÃO!")
+else:
+    print("REPROVADO!")
